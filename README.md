@@ -8,6 +8,7 @@ This EFI is largely based on top of fdvky1's EFI Files, huge thanks to them! | [
 
 
 Notes:
+
 You will need to edit itlwm's files | itlwm.kext -> Contents -> Info.plist
 Scroll down to where it says YOURPASSWORDHERE and YOURWIFINAMEHERE. Replace these with your info, or else you won't get Wi-Fi in the recovery.
 
