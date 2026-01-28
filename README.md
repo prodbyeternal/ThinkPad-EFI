@@ -1,6 +1,8 @@
 # ThinkPad-EFI  
 OpenCore EFI for Lenovo ThinkPad L15 Gen 1 (AMD)
 
+![macOS 26 on ThinkPad L15](https://github.com/prodbyeternal/ThinkPad-EFI/blob/main/Tahoe.png?raw=true)
+
 This repository contains an OpenCore EFI configuration for running **macOS Tahoe 26** on the **Lenovo ThinkPad L15 Gen 1 (AMD)**.  
 It is also compatible with **macOS Sequoia**.
 
