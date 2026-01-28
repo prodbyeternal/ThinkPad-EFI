@@ -1,47 +1,129 @@
-# ThinkPad-EFI
-OpenCore EFI files for Lenovo ThinkPad L15 Gen 1 (AMD)
+ThinkPad-EFI
 
-This branch focuses on running macOS Tahoe 26 but also works for macOS Sequoia.
-Tested on: Lenovo ThinkPad L15 Gen 1 (AMD), 2TB NVMe SSD, 16GB DDR4 RAM, AMD Ryzen 5 PRO 4650U with AMD Radeon Graphics, Intel Dual Band Wireless-AC 7265 Wi-Fi Card.
+OpenCore EFI for Lenovo ThinkPad L15 Gen 1 (AMD)
 
-This EFI is largely based on top of fdvky1's EFI Files, huge thanks to them! | [Original EFI](https://github.com/fdvky1/Thinkpad-L15-Hackintosh)
+This repository contains an OpenCore EFI configuration for running macOS Tahoe 26 on the Lenovo ThinkPad L15 Gen 1 (AMD).
+It is also compatible with macOS Sequoia.
+
+💻 Tested Hardware
+
+Model: Lenovo ThinkPad L15 Gen 1 (AMD)
+
+CPU: AMD Ryzen 5 PRO 4650U
+
+GPU: AMD Radeon Graphics (iGPU)
+
+RAM: 16GB DDR4
+
+Storage: 2TB NVMe SSD
+
+Wi-Fi: Intel Dual Band Wireless-AC 7265
+
+🙏 Credits
+
+This EFI is largely based on fdvky1’s work — massive thanks to them for the original foundation.
+
+Original EFI:
+https://github.com/fdvky1/Thinkpad-L15-Hackintosh
+
+⚠️ Important Notes
+Wi-Fi (itlwm setup)
+
+You must edit the following file for Wi-Fi to work in macOS Recovery:
+
+itlwm.kext → Contents → Info.plist
 
 
-Notes:
+Scroll down and replace:
 
-You will need to edit itlwm's files | itlwm.kext -> Contents -> Info.plist
-Scroll down to where it says YOURPASSWORDHERE and YOURWIFINAMEHERE. Replace these with your info, or else you won't get Wi-Fi in the recovery.
+YOURPASSWORDHERE
 
-Build your own UTBMap for better results, then replace the existing one with the one you built and use ProperTree to refresh it. (OC Snapshot)
+YOURWIFINAMEHERE
 
-itlwm has been chosen instead of AirportItlwm because of stability and versatility between macOS versions.
-After installation, download the HeliPort 2.0.0 beta from Github and install it. Optionally make it so it opens on logon.
+If you skip this step, Wi-Fi will not work in recovery.
 
-Apple has removed the AppleHDA kext from their os starting with 26.0 Beta 2, you will need to use MyKextInstaller to revert AppleHDA.
-OCLP3 Beta doesn't work, believe me, I tried.
+USB Mapping
 
-What works?
+It is strongly recommended to build your own UTBMap for best results.
 
-Basically everything top-bottom, GPU works out of the box and keeps up with everything, HDMI works too. Basically everything a laptop does :D
+Replace the included map with your own and:
 
-Supply yourself with your own macOS Install file via macrecovery.py
+Open the EFI in ProperTree
 
+Run OC Snapshot
 
-UEFI BIOS SETTINGS (by fdvky1):
+Wi-Fi Driver Choice
 
-Config Tab:
+itlwm is used instead of AirportItlwm
 
-    Display
-        Boot Display Device -> Thinkpad LCD
-        Shared Display Priority -> HDMI
-        Boot Time Extension -> Disabled
+Reason: better stability and compatibility across macOS versions
 
-Security Tab:
+After installation:
 
-    Memory Protection -> Execution Prevention -> On
-    Secure Boot -> Off
+Download HeliPort 2.0.0 beta from GitHub
 
-Startup Tab:
+Install it and optionally enable auto-launch at login
 
-    UEFI/Legacy Boot -> UEFI Only
+Audio on macOS 26+
 
+Apple removed AppleHDA.kext starting with macOS 26.0 Beta 2
+
+To restore audio:
+
+Use MyKextInstaller to reinstall AppleHDA
+
+❌ OCLP3 Beta does NOT work (tested extensively)
+
+✅ What Works?
+
+Pretty much everything you’d expect from a daily-driver laptop:
+
+GPU acceleration (works out of the box)
+
+HDMI output
+
+Audio (after AppleHDA restoration)
+
+Wi-Fi & Bluetooth
+
+Sleep / Wake
+
+Trackpad, keyboard, ports, etc.
+
+In short: everything top to bottom 😄
+
+📦 macOS Installation
+
+Supply your own macOS installer using:
+
+macrecovery.py
+
+⚙️ UEFI / BIOS Settings
+
+(Courtesy of fdvky1)
+
+Config Tab
+
+Display
+
+Boot Display Device → ThinkPad LCD
+
+Shared Display Priority → HDMI
+
+Boot Time Extension → Disabled
+
+Security Tab
+
+Memory Protection → Execution Prevention → On
+
+Secure Boot → Off
+
+Startup Tab
+
+UEFI/Legacy Boot → UEFI Only
+
+❗ Disclaimer
+
+This EFI is provided as-is.
+Your mileage may vary depending on BIOS version, hardware revisions, and macOS updates.
+Always keep backups before updating macOS or OpenCore.
