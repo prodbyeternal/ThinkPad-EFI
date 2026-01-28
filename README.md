@@ -4,7 +4,7 @@ OpenCore EFI files for Lenovo ThinkPad L15 Gen 1 (AMD)
 This branch focuses on running macOS Tahoe 26 but also works for macOS Sequoia.
 Tested on: Lenovo ThinkPad L15 Gen 1 (AMD), 2TB NVMe SSD, 16GB DDR4 RAM, AMD Ryzen 5 PRO 4650U with AMD Radeon Graphics, Intel Dual Band Wireless-AC 7265 Wi-Fi Card.
 
-This EFI is largely based on top of fdvky1's EFI Files, huge thanks to them! | (Original EFI)[https://github.com/fdvky1/Thinkpad-L15-Hackintosh]
+This EFI is largely based on top of fdvky1's EFI Files, huge thanks to them! | [Original EFI](https://github.com/fdvky1/Thinkpad-L15-Hackintosh)
 
 
 Notes:
