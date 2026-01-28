@@ -104,6 +104,7 @@ macrecovery.py
 - Boot Display Device → ThinkPad LCD
 - Shared Display Priority → HDMI
 - Boot Time Extension → Disabled
+- Increase the Framebuffer Size → from 512MB to 1GB at best
 
 ---
 
