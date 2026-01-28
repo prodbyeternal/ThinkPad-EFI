@@ -25,3 +25,23 @@ What works?
 Basically everything top-bottom, GPU works out of the box and keeps up with everything, HDMI works too. Basically everything a laptop does :D
 
 Supply yourself with your own macOS Install file via macrecovery.py
+
+
+UEFI BIOS SETTINGS (by fdvky1):
+
+Config Tab:
+
+    Display
+        Boot Display Device -> Thinkpad LCD
+        Shared Display Priority -> HDMI
+        Boot Time Extension -> Disabled
+
+Security Tab:
+
+    Memory Protection -> Execution Prevention -> On
+    Secure Boot -> Off
+
+Startup Tab:
+
+    UEFI/Legacy Boot -> UEFI Only
+
