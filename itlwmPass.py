@@ -40,60 +40,6 @@ def get_wifi_windows():
 
     return networks
 
-
-def get_wifi_macos():
-    networks = []
-
-    # Get all Wi-Fi SSIDs stored in keychain
-    try:
-        ssids = subprocess.check_output(
-            [
-                "security",
-                "find-generic-password",
-                "-D",
-                "AirPort network password",
-                "-a",
-                "",
-            ],
-            stderr=subprocess.DEVNULL,
-            encoding="utf-8",
-            errors="ignore",
-        )
-    except subprocess.CalledProcessError:
-        return networks
-
-    for line in ssids.splitlines():
-        line = line.strip()
-        if not line.startswith('"acct"<'):
-            continue
-
-        # Extract SSID
-        ssid = line.split('"')[3]
-
-        try:
-            password = subprocess.check_output(
-                [
-                    "security",
-                    "find-generic-password",
-                    "-D",
-                    "AirPort network password",
-                    "-a",
-                    ssid,
-                    "-w",
-                ],
-                stderr=subprocess.DEVNULL,
-                encoding="utf-8",
-            ).strip()
-
-            if password:
-                networks.append((ssid, password))
-
-        except subprocess.CalledProcessError:
-            pass
-
-    return networks
-
-
 def get_wifi_linux():
     networks = []
     connections = subprocess.check_output(
@@ -131,8 +77,6 @@ def get_known_wifi():
 
     if os_name == "Windows":
         return get_wifi_windows()
-    elif os_name == "Darwin":
-        return get_wifi_macos()
     elif os_name == "Linux":
         return get_wifi_linux()
     else:
