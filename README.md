@@ -43,6 +43,8 @@ Scroll down and replace:
 
 If this step is skipped, Wi-Fi will **not work in recovery**.
 
+You can also use the **itlwmPass.py** script inside the repo to edit the kext file for you.
+
 ---
 
 ### USB Mapping
