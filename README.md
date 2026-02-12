@@ -43,7 +43,9 @@ Scroll down and replace:
 
 If this step is skipped, Wi-Fi will **not work in recovery**.
 
-You can also use the **itlwmPass.py** script inside the repo to edit the kext file for you.
+You can also use the **itlwmPass.py** script inside the repo to edit the kext file for you. (Windows/Linux only)
+
+macOS Tahoe can have graphical bugs due to NootedRed drivers being experimental. For best experience use macOS Tahoe **26.0.1**.
 
 ---
 
